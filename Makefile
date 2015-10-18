@@ -1,4 +1,4 @@
-all: arc phenix typeD typeB typeA codesend RFSniffer homeeasy brennen Send17X Send3XX Send45X blyss
+all: arc phenix typeD typeB typeA codesend RFSniffer homeeasy brennen Send17X Send3XX Send45X Send5XX blyss
 
 arc: RCSwitch.o arc.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
@@ -33,6 +33,9 @@ Send3XX: RCSwitch.o Send3XX.o
 Send45X: RCSwitch.o Send45X.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 
+Send5XX: RCSwitch.o Send5XX.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
+
 blyss: BlyssController.o blyss.o
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
 	
@@ -42,4 +45,4 @@ RFSniffer: RCSwitch.o RFSniffer.o
 	
 
 clean:
-	$(RM) *.o arc phenix typeD typeB typeA codesend servo RFSniffer homeeasy brennen Send17X Send3XX Send45X blyss
+	$(RM) *.o arc phenix typeD typeB typeA codesend servo RFSniffer homeeasy brennen Send17X Send3XX Send45X Send5XX blyss
